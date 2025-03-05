@@ -40,9 +40,9 @@ function App() {
       }
     }
 
-    // if(!loggedInUser){
-    //   return alert("invalid credentials..!!!");
-    // }
+    if(!loggedInUser){
+      return alert("invalid credentials..!!!");
+    }
   } 
 
   return (

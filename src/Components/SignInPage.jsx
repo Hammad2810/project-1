@@ -7,7 +7,9 @@ const SignInPage = ({handleLogIn}) => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    handleLogIn(email,password)  
+    handleLogIn(email,password)
+    setEmail("")
+    setPassword("")  
   }
   
   
