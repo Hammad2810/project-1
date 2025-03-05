@@ -40,16 +40,14 @@ function App() {
       }
     }
 
-    if(!loggedInUser){
-      return alert("invalid credentials..!!!");
-    }
+    // if(!loggedInUser){
+    //   return alert("invalid credentials..!!!");
+    // }
   } 
 
   return (
     <>
     {!user ? <SignInPage handleLogIn={handleLogIn}/>: ''}
-
-    {/* {user == "admin" ? <AdminDashboard/> : (user == "employee" ? <EmployeeDashboard data={loggedInUserData} /> : null)} */}
     {user == "admin" && <AdminDashboard />}
     {user == "employees" && <EmployeeDashboard data={loggedInUserData} />}
     </>
