@@ -27,16 +27,35 @@ function App() {
 
   const handleLogIn = (email,password) => {
     const loggedInUser = localStorage.getItem("loggedInUser") || "";
-    if(email == 'admin@me.com' && password == 123){
-      setUser("admin")
-      localStorage.setItem("loggedInUser", JSON.stringify({role : "admin"}))
-    }
-    else if (authData) {
-      const employee = authData.employees.find((e) =>email == e.email && password == e.password)
-      if(employee) {
-        setUser("employee")
-        setLoggedInUserData(employee)
-        localStorage.setItem("loggedInUser", JSON.stringify({role : "employees", data: employee}))
+    // if(email == 'admin@me.com' && password == 123){
+    //   setUser("admin")
+    //   localStorage.setItem("loggedInUser", JSON.stringify({role : "admin"}))
+    // }
+
+    // if(authData){
+    //   const admin = authData.employees.find((e) =>email == e.email && password == e.password)
+      
+    //   if(admin) {
+    //     setUser("admin")
+    //     setLoggedInUserData(admin)
+    //     localStorage.setItem("loggedInUser", JSON.stringify({role : "admin", data: admin}))
+    //   }
+    // }
+    if (authData) {
+      const employees = authData.employees.find((e) =>email == e.email && password == e.password)
+      const admin = authData.admin.find((e) =>email == e.email && password == e.password)
+      if(employees) {
+        setUser("employees")
+        setLoggedInUserData(employees)
+        localStorage.setItem("loggedInUser", JSON.stringify({role : "employees", data: employees}))
+      }
+      else if(admin) {
+        setUser("admin")
+        setLoggedInUserData(admin)
+        localStorage.setItem("loggedInUser", JSON.stringify({role : "admin", data: admin}))
+      }
+      else {
+        alert("Invalid Credentials..")
       }
     }
 
