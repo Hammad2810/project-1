@@ -57,17 +57,13 @@ function App() {
         alert("Invalid Credentials..")
       }
     }
-
-    // if(!loggedInUser){
-    //   return alert("invalid credentials..!!!");
-    // }
   } 
 
   return (
     <>
     {!user ? <SignInPage handleLogIn={handleLogIn}/>: ''}
-    {user == "admin" && <AdminDashboard />}
-    {user == "employees" && <EmployeeDashboard data={loggedInUserData} />}
+    {user === "admin" && <AdminDashboard data={loggedInUserData} />}
+    {user === "employees" && <EmployeeDashboard data={loggedInUserData} />}
     </>
   )
 }
